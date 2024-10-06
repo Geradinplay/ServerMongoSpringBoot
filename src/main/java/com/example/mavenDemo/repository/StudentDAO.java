@@ -1,26 +1,26 @@
 package com.example.mavenDemo.repository;
 
 import com.example.mavenDemo.model.Student;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 @Repository
-public class studentDAO {
+public class StudentDAO {
 
     private final List<Student> STUDENTS = new ArrayList<>();
 
+
     public List<Student> findAllStudent(){
         return STUDENTS;
-    }
-
-
-
-    public Student saveStudent(Student student) {
-        STUDENTS.add(student);
-        return student;
     }
 
     public Student findByIndex(String index) {

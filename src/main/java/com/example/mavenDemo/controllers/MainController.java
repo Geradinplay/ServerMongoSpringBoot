@@ -35,6 +35,7 @@ public class MainController {
             if (student==null) {
                 return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
             }
+            studentService.saveStudent(student);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(student);
     }
 

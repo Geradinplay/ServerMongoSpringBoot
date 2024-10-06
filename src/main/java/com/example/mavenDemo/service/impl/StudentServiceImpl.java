@@ -1,7 +1,8 @@
 package com.example.mavenDemo.service.impl;
 
 import com.example.mavenDemo.model.Student;
-import com.example.mavenDemo.repository.studentDAO;
+import com.example.mavenDemo.repository.StudentDAO;
+import com.example.mavenDemo.repository.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +11,14 @@ import java.util.List;
 @AllArgsConstructor
 public class StudentServiceImpl implements StudentService{
 
-    private final studentDAO repository;
+    private final StudentDAO repository;
+    private final StudentRepository studentRepository;
 
 
-    public List<Student> findAllStudent(){
-        return repository.findAllStudent();
-    }
+    public List<Student> findAllStudent(){return studentRepository.findAll();}
 
     public Student saveStudent(Student student) {
-        return repository.saveStudent(student);
+        return studentRepository.save(student);
     }
 
     public Student findByIndex(String index) {
